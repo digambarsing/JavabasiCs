@@ -1,0 +1,176 @@
+package oops;
+
+public class basics { // class is a user defined data type.
+    String name;
+    int roll;
+    int dob;
+    public static void change(basics s){
+        s.name="ram";
+    }
+}
+
+class main{
+    public static void main(String[] args) {
+        basics n=new basics();
+        n.name="Digambar singh";
+        n.roll=26;
+        n.dob=26052005;
+        System.out.println(n.name);
+        System.out.println(n.roll);
+        System.out.println(n.dob);
+        basics.change(n);
+        System.out.println(n.name);
+
+    }
+}
+
+
+
+package oops;
+
+public class constructur {
+    // creation of constructor
+    // constructor name is same as a class name
+    String naam;
+    int age;
+
+    // final keyword
+    // if use final keyword than cnt assignany value to that variable.
+
+    final String school ="DPS";
+
+    private static int count;
+
+    public int getCount(){
+        return count;
+    }
+
+
+    public constructur(String name,int age){
+        naam=name;
+        this.age=age;
+        count++;
+
+
+    }
+}
+
+
+
+package oops;
+
+public class frac {
+
+    public static int gcd(int num,int den){
+        int min=Math.min(num,den);
+        for(int i=min;i>=1;i--){
+            if(num%i==0 && den%i==0){
+                return i;
+            }
+        }
+        return min;
+    }
+    int num;
+    int den;
+
+    public void simply(){
+        int hcf=gcd(num,den);
+        num/=hcf;
+        den/=hcf;
+    }
+
+    public frac(int num,int den){
+        this.num=num;
+        this.den=den;
+    }
+}
+
+
+package oops;
+
+public class fraction {
+    public static void main(String[] args) {
+        frac f=new frac(7,21);
+        System.out.println(f.num+"/"+f.den);
+        f.simply();
+        System.out.println(f.num+"/"+f.den);
+
+        frac f1=new frac(21,7);
+        System.out.println(f1.num+"/"+f1.den);
+        f1.simply();
+        System.out.println(f1.num+"/"+f1.den);
+    }
+}
+
+
+
+package oops;
+
+public class school {
+    // classes in different files
+    String name;
+    int fees;
+
+    private int roll;
+
+    private int age;
+
+    public int getAge() {
+        // getter
+        return age;
+    }
+
+    public void setAge(int age){
+        // setter and use of this keyword
+
+       this.age=age;
+    }
+
+
+
+    // use of getter and setter functuion to access a private variable in another class.
+
+    public int getRoll() {
+        // getter
+        return roll;
+    }
+     public void setRoll(int rolls){
+        // setter
+        roll=rolls;
+     }
+
+
+
+}
+
+
+
+package oops;
+
+public class school1 {
+    public static void main(String[] args) {
+        school student=new school();
+        student.name="dev";
+        student.fees=5000;
+        System.out.println(student.name);
+        System.out.println(student.fees);
+        // System.out.println(student.getRoll());
+
+        student.setRoll(97);
+        System.out.println(student.getRoll());
+
+        student.setAge(67);
+        System.out.println(student.getAge());
+
+        constructur s1=new constructur("rahul",89);
+        System.out.println(s1.getCount());
+        System.out.println(s1.naam);
+        System.out.println(s1.age);
+        System.out.println(s1.getCount());
+        // s1.school="hello"; gave error
+        System.out.println(s1.school);
+        constructur s2=new constructur("rahul",89);
+        System.out.println(s2.getCount());
+    }
+}
+
